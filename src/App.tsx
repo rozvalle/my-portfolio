@@ -5,6 +5,7 @@ import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer"; 
+import CustomCursor from "./components/CustomCursor";
 import { useState } from "react";
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
 
   return (
     <div className={dark ? "dark" : ""}>
+      <CustomCursor />
       <div className="bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 scroll-smooth transition-colors">
         <Navbar dark={dark} setDark={setDark} />
         <Hero />
