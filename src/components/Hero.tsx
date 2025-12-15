@@ -1,76 +1,91 @@
-import { Download } from "lucide-react";
 import { motion } from "framer-motion";
+import { AiFillGithub, AiFillLinkedin, AiOutlineDownload } from "react-icons/ai";
+import heroImage from "../assets/hero-image.svg"; // Replace with a better hero image
 
-function Hero() {
-    const floatingShapes = [
-        { size: 60, x: -50, y: -100, delay: 0 },
-        { size: 80, x: 100, y: -150, delay: 0.5 },
-        { size: 100, x: -120, y: 50, delay: 1 },
-        { size: 50, x: 150, y: 100, delay: 1.5 },
-    ];
-
+export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-indigo-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900">
-            {/* Floating background shapes */}
-            {floatingShapes.map((shape, idx) => (
+        <section
+            id="hero"
+            className="relative min-h-screen flex flex-col justify-center pt-24 px-6 md:px-24"
+        >
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                {/* Left: Text */}
                 <motion.div
-                    key={idx}
-                    className="absolute rounded-full bg-indigo-200 dark:bg-indigo-800 opacity-30"
-                    style={{ width: shape.size, height: shape.size, top: shape.y, left: shape.x }}
-                    animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, delay: shape.delay, ease: "easeInOut" }}
-                />
-            ))}
-
-            {/* Main Hero Content */}
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="relative text-center z-10 px-4"
-            >
-                {/* Profile Image */}
-                <motion.img
-                    src="https://avatars.githubusercontent.com/u/190080158?v=4"
-                    className="relative z-10 w-48 h-48 mx-auto rounded-full border-4 border-zinc-400 dark:border-zinc-700 object-cover shadow-lg"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                />
-
-                {/* Name */}
-                <motion.h2
-                    className="mt-6 text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.15 } },
+                    }}
+                    className="flex flex-col gap-4 md:gap-6 flex-1 text-center md:text-left"
                 >
-                    Francis Elmo Valeros
-                </motion.h2>
+                    <motion.h1
+                        variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
+                        className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight"
+                    >
+                        Hi, I’m <span className="text-indigo-600">Francis</span>
+                    </motion.h1>
+                    <motion.h2
+                        variants={{ hidden: { opacity: 0, y: -15 }, visible: { opacity: 1, y: 0 } }}
+                        className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300"
+                    >
+                        Aspiring Full-Stack Developer
+                    </motion.h2>
+                    <motion.p
+                        variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                        className="text-gray-600 dark:text-gray-300 md:text-lg max-w-md mx-auto md:mx-0"
+                    >
+                        Building modern web applications with React, Node.js, and cutting-edge tools.
+                    </motion.p>
 
-                {/* Role */}
-                <motion.p
-                    className="text-zinc-600 dark:text-zinc-400 mt-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.6 }}
-                >
-                    Full‑Stack Developer | IT Student
-                </motion.p>
+                    <motion.div
+                        variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                        className="flex flex-wrap justify-center md:justify-start gap-4 mt-4"
+                    >
+                        <a
+                            href="/Valeros_CV.pdf"
+                            download
+                            className="inline-flex items-center gap-2 px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium shadow-md"
+                            data-cursor="button"
+                            data-cursor-text="DOWNLOAD"
+                        >
+                            <AiOutlineDownload size={20} /> Download CV
+                        </a>
+                        <a
+                            href="https://github.com/yourusername"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
+                        >
+                            <AiFillGithub size={28} />
+                        </a>
+                        <a
+                            href="https://linkedin.com/in/yourusername"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
+                        >
+                            <AiFillLinkedin size={28} />
+                        </a>
+                    </motion.div>
+                </motion.div>
 
-                {/* CV Download Button */}
-                <motion.a
-                    href="/Valeros_CV.pdf"
-                    className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-xl font-medium shadow-lg hover:scale-105 transition-transform"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.6 }}
+                {/* Right: Hero Image */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="flex justify-center md:justify-end flex-1 mt-8 md:mt-0"
                 >
-                    <Download size={18} /> Download CV
-                </motion.a>
-            </motion.div>
+                    <motion.img
+                        src={heroImage}
+                        alt="Hero"
+                        className="w-52 sm:w-56 md:w-72 lg:w-80 rounded-xl shadow-2xl"
+                        whileHover={{ y: -10, scale: 1.05 }}
+                        transition={{ type: "spring", stiffness: 120 }}
+                    />
+                </motion.div>
+            </div>
         </section>
     );
 }
-
-export default Hero;
