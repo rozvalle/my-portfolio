@@ -295,6 +295,7 @@ function Modal({ children, onClose }: any) {
                     data-cursor="button"
                     data-cursor-text="CLOSE"
                     onClick={onClose}
+                    aria-label="Close Modal"
                     className="absolute top-4 right-4 text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white"
                 >
                     <X size={20} />
