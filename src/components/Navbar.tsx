@@ -1,26 +1,10 @@
 import { Sun, Moon, User, BookOpen, Briefcase, Mail, Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar({ dark, setDark }: any) {
-    const [active, setActive] = useState("about");
     const [mobileOpen, setMobileOpen] = useState(false);
-
-    // Update active link on scroll
-    useEffect(() => {
-        const handleScroll = () => {
-            const sections = ["about", "education", "projects", "contact"];
-            const scrollPos = window.scrollY + 200; // offset for navbar height
-            for (const section of sections) {
-                const el = document.getElementById(section);
-                if (el && scrollPos >= el.offsetTop) {
-                    setActive(section);
-                }
-            }
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    const [active, setActive] = useState("about");
 
     const links = [
         { name: "About", href: "#about", icon: <User size={16} /> },
@@ -30,24 +14,27 @@ function Navbar({ dark, setDark }: any) {
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur border-b border-zinc-200 dark:border-zinc-800 transition-colors">
+        <nav className="fixed top-0 w-full z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur border-b border-zinc-200 dark:border-zinc-800 transition-colors">
             <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
                 <span className="font-bold text-lg">Elmo</span>
 
                 {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-6 text-sm">
+                <div className="hidden md:flex items-center gap-8 text-sm">
                     {links.map((link) => (
-                        <motion.a
+                        <a
                             key={link.name}
                             href={link.href}
-                            whileHover={{ scale: 1.1 }}
-                            className={`flex items-center gap-1 transition-colors ${active.toLowerCase() === link.name.toLowerCase()
-                                    ? "text-indigo-600 dark:text-indigo-400 font-semibold"
-                                    : "text-zinc-700 dark:text-zinc-300"
-                                }`}
+                            onClick={() => setActive(link.name.toLowerCase())}
+                            className="relative flex items-center gap-1 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium"
                         >
                             {link.icon} {link.name}
-                        </motion.a>
+                            {active === link.name.toLowerCase() && (
+                                <motion.span
+                                    layoutId="underline"
+                                    className="absolute bottom-[-5px] left-0 w-full h-[2px] bg-indigo-600 rounded"
+                                />
+                            )}
+                        </a>
                     ))}
 
                     <motion.button
@@ -81,25 +68,21 @@ function Navbar({ dark, setDark }: any) {
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
                         className="md:hidden bg-white dark:bg-zinc-950 overflow-hidden border-t border-zinc-200 dark:border-zinc-800"
                     >
                         <div className="flex flex-col px-6 py-4 gap-4">
                             {links.map((link) => (
-                                <motion.a
+                                <a
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setMobileOpen(false)}
-                                    whileHover={{ scale: 1.05 }}
-                                    className={`flex items-center gap-2 transition-colors ${active.toLowerCase() === link.name.toLowerCase()
-                                            ? "text-indigo-600 dark:text-indigo-400 font-semibold"
-                                            : "text-zinc-700 dark:text-zinc-300"
-                                        }`}
+                                    className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors"
                                 >
                                     {link.icon} {link.name}
-                                </motion.a>
+                                </a>
                             ))}
                         </div>
                     </motion.div>
