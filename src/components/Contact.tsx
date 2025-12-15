@@ -51,7 +51,7 @@ export default function Contact() {
                         {/* Socials */}
                         <div className="mt-6 flex gap-4">
                             <motion.a
-                                href="https://github.com/yourusername"
+                                href="https://github.com/rozvalle"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-cursor="hover"
@@ -62,7 +62,7 @@ export default function Contact() {
                                 <AiFillGithub className="inline mb-0.5 mr-1" size={28}/>
                             </motion.a>
                             <motion.a
-                                href="https://linkedin.com/in/yourusername"
+                                href="https://linkedin.com/in/francis-elmo-valeros-b65782397"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-cursor="hover"
@@ -73,7 +73,7 @@ export default function Contact() {
                                 <AiFillLinkedin className="inline mb-0.5 mr-1" size={28}/>
                             </motion.a>
                             <motion.a
-                                href="mailto:youremail@email.com"
+                                href="mailto:elmovaleros11@gmail.com"
                                 data-cursor="hover"
                                 data-cursor-text="EMAIL"
                                 whileHover={{ y: -3 }}
