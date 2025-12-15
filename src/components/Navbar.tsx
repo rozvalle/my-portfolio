@@ -16,7 +16,7 @@ function Navbar({ dark, setDark }: any) {
     return (
         <nav className="fixed top-0 w-full z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur border-b border-zinc-200 dark:border-zinc-800 transition-colors">
             <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-                <span className="font-bold text-lg">Elmo</span>
+                <span className="font-bold text-lg">Francis Elmo V.</span>
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8 text-sm">
