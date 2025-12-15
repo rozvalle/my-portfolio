@@ -41,6 +41,7 @@ function Navbar({ dark, setDark }: any) {
                         onClick={() => setDark(!dark)}
                         whileTap={{ scale: 0.9 }}
                         whileHover={{ rotate: 20 }}
+                        aria-label="Toggle Dark Mode"
                         className="p-2 rounded-full border border-zinc-300 dark:border-zinc-700 transition-colors"
                     >
                         {dark ? <Sun size={18} /> : <Moon size={18} />}
@@ -50,6 +51,7 @@ function Navbar({ dark, setDark }: any) {
                 {/* Mobile Hamburger */}
                 <div className="md:hidden flex items-center gap-4">
                     <motion.button
+                        aria-label="Toggle Dark Mode"
                         onClick={() => setDark(!dark)}
                         whileTap={{ scale: 0.9 }}
                         whileHover={{ rotate: 20 }}
@@ -58,7 +60,7 @@ function Navbar({ dark, setDark }: any) {
                         {dark ? <Sun size={18} /> : <Moon size={18} />}
                     </motion.button>
 
-                    <button onClick={() => setMobileOpen(!mobileOpen)}>
+                    <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle Mobile Menu">
                         {mobileOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
