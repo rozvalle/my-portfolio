@@ -53,6 +53,7 @@ export default function Hero() {
                         </a>
                         <a
                             href="https://github.com/rozvalle"
+                            aria-label="Open GitHub Profile"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
@@ -61,6 +62,7 @@ export default function Hero() {
                         </a>
                         <a
                             href="https://linkedin.com/in/francis-elmo-valeros-b65782397"
+                            aria-label="Open LinkedIn Profile"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
