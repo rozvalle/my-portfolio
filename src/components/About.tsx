@@ -3,25 +3,25 @@ import { useState } from "react";
 
 function About() {
     const languages = [
-        { name: "Java", level: 70 },
-        { name: "C#", level: 65 },
-        { name: "VB.net", level: 60 },
-        { name: "HTML", level: 90 },
-        { name: "CSS", level: 85 },
-        { name: "JavaScript", level: 80 },
-        { name: "TypeScript", level: 75 },
-        { name: "Kotlin", level: 50 },
-        { name: "Python", level: 70 },
-        { name: "SQL", level: 80 },
+        { name: "Java", level: 50 },
+        { name: "C#", level: 55 },
+        { name: "VB.net", level: 40 },
+        { name: "HTML", level: 80 },
+        { name: "CSS", level: 80 },
+        { name: "JavaScript", level: 75 },
+        { name: "TypeScript", level: 20 },
+        { name: "Kotlin", level: 40 },
+        { name: "Python", level: 42 },
+        { name: "SQL", level: 65 },
         { name: "Bash", level: 60 },
     ];
 
     const frameworks = [
         { name: "React", level: 80 },
-        { name: "Node.js", level: 75 },
+        { name: "Node.js", level: 70 },
         { name: "Express", level: 70 },
-        { name: "Tailwind CSS", level: 85 },
-        { name: "Next.js", level: 70 },
+        { name: "Tailwind CSS", level: 10 },
+        { name: "Next.js", level: 10 },
     ];
 
     const interests = ["Gaming", "Playing Guitar", "Drawing", "Motorsports"];
