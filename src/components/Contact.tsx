@@ -52,6 +52,7 @@ export default function Contact() {
                         <div className="mt-6 flex gap-4">
                             <motion.a
                                 href="https://github.com/rozvalle"
+                                aria-label="Open GitHub Profile"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-cursor="hover"
@@ -63,6 +64,7 @@ export default function Contact() {
                             </motion.a>
                             <motion.a
                                 href="https://linkedin.com/in/francis-elmo-valeros-b65782397"
+                                aria-label="Open LinkedIn Profile"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-cursor="hover"
@@ -74,6 +76,7 @@ export default function Contact() {
                             </motion.a>
                             <motion.a
                                 href="mailto:elmovaleros11@gmail.com"
+                                aria-label="Send Email"
                                 data-cursor="hover"
                                 data-cursor-text="EMAIL"
                                 whileHover={{ y: -3 }}
@@ -98,6 +101,7 @@ export default function Contact() {
                         <label className="mb-2 block text-sm text-neutral-400">Name</label>
                         <input
                             required
+                            aria-label="Name"
                             type="text"
                             className="w-full rounded-xl border border-neutral-800 bg-transparent px-4 py-3 outline-none transition focus:border-white"
                         />
@@ -107,6 +111,7 @@ export default function Contact() {
                         <label className="mb-2 block text-sm text-neutral-400">Email</label>
                         <input
                             required
+                            aria-label="Email"
                             type="email"
                             className="w-full rounded-xl border border-neutral-800 bg-transparent px-4 py-3 outline-none transition focus:border-white"
                         />
@@ -116,6 +121,7 @@ export default function Contact() {
                         <label className="mb-2 block text-sm text-neutral-400">Message</label>
                         <textarea
                             required
+                            aria-label="Message"
                             rows={5}
                             className="w-full resize-none rounded-xl border border-neutral-800 bg-transparent px-4 py-3 outline-none transition focus:border-white"
                         />
