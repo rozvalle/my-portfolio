@@ -52,7 +52,7 @@ export default function Hero() {
                             <AiOutlineDownload size={20} /> Download CV
                         </a>
                         <a
-                            href="https://github.com/yourusername"
+                            href="https://github.com/rozvalle"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
@@ -60,7 +60,7 @@ export default function Hero() {
                             <AiFillGithub size={28} />
                         </a>
                         <a
-                            href="https://linkedin.com/in/yourusername"
+                            href="https://linkedin.com/in/francis-elmo-valeros-b65782397"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
