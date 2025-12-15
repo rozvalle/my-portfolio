@@ -33,7 +33,7 @@ function About() {
     } | null>(null);
 
     return (
-        <section id="about" className="max-w-6xl mx-auto px-6 py-24">
+        <section id="about" className="max-w-6xl mx-auto px-6 py-16">
             <motion.h3
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -70,7 +70,12 @@ function About() {
                 />
 
                 {/* Interests */}
-                <motion.div className="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-xl shadow-md dark:shadow-black/50">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-xl shadow-md dark:shadow-black/50"
+                >
                     <h4 className="text-xl font-semibold mb-4">Interests</h4>
                     <div className="flex flex-wrap gap-2">
                         {interests.map((interest) => (
@@ -142,6 +147,8 @@ function SkillCard({ title, items, type, setSelectedSkill }: any) {
                 {items.map((item: any) => (
                     <motion.span
                         key={item.name}
+                        data-cursor="hover"
+                        data-cursor-text="VIEW"
                         className="px-3 py-1 text-sm rounded-full bg-zinc-200 dark:bg-zinc-700 cursor-pointer hover:bg-indigo-200 dark:hover:bg-indigo-700 transition"
                         whileHover={{ scale: 1.05 }}
                         onClick={() => setSelectedSkill({ ...item, type })}
