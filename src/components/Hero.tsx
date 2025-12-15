@@ -82,6 +82,7 @@ export default function Hero() {
                     <motion.img
                         src={heroImage}
                         alt="Hero"
+                        fetchPriority="high"
                         className="w-52 sm:w-56 md:w-72 lg:w-80 rounded-xl shadow-2xl"
                         whileHover={{ y: -10, scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 120 }}
