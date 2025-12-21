@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Laptop, Book, Laptop2 as Android, X } from "lucide-react";
+import { X } from "lucide-react";
 import portfolioLogo from "../assets/portfolio.png";
 import echoLogo from "../assets/echocardiography.png";
 import furcareLogo from "../assets/furcare.png";
