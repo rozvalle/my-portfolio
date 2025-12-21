@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Laptop, Book, Laptop2 as Android, X } from "lucide-react";
+import portfolioLogo from "../assets/portfolio.png";
+import echoLogo from "../assets/echocardiography.png";
+import furcareLogo from "../assets/furcare.png";
+import itbytesLogo from "../assets/itbytes.webp";
+import noodlehouseLogo from "../assets/thenoodlehouse.png";
+import techguruLogo from "../assets/techguru.png";
+import vawcareLogo from "../assets/vawcare.png";
+import triviaappLogo from "../assets/trivialogo.png";
 
 export default function Projects() {
     const personalProjects = [
@@ -15,8 +23,21 @@ export default function Projects() {
             tags: ["React", "Typescript", "Tailwind"],
             code: "#",
             live: "#",
-            icon: <Laptop size={20} />,
+            icon: portfolioLogo,
         },
+        {
+            title: "Echo Reviewer",
+            shortDesc: "Web app for reviewing echocardiography images.",
+            fullDesc:
+                "A web application that allows users to review and annotate echocardiography images for educational purposes. Features identification quizzes and instant feedback.",
+            difficulty: 30,
+            role: ["Full-Stack Developer"],
+            contributors: ["None"],
+            tags: ["React + Vite", "Ant Design"],
+            code: "https://github.com/rozvalle/echocardiography-reviewer",
+            live: "https://echocardiography-reviewer.vercel.app/",
+            icon: echoLogo,
+        }
     ];
 
     const schoolProjects = [
@@ -31,7 +52,7 @@ export default function Projects() {
             tags: ["React + Vite", "Node.js", "Express", "MongoDB", "AntD"],
             code: "https://github.com/VAWCARE-App/VAWCare-App",
             live: "https://vawcare-app.vercel.app/",
-            icon: <Book size={20} />,
+            icon: vawcareLogo,
         },
         {
             title: "Trivia App",
@@ -44,7 +65,7 @@ export default function Projects() {
             tags: ["Kotlin", "Firebase", "Android"],
             code: "https://github.com/rozvalle/AppDev-Final-TriviaApp",
             live: "https://github.com/rozvalle/AppDev-Final-TriviaApp/releases/tag/v1.1",
-            icon: <Android size={20} />,
+            icon: triviaappLogo,
             isApk: true,
         },
         {
@@ -58,7 +79,7 @@ export default function Projects() {
             tags: ["React", "Node.js", "Express", "MongoDB", "AntD"],
             code: "https://github.com/Dre-OS/IT-Bytes-UI",
             live: "https://it-bytes-ui.vercel.app/",
-            icon: <Laptop size={20} />,
+            icon: itbytesLogo,
         },
         {
             title: "The Noodle House",
@@ -71,7 +92,7 @@ export default function Projects() {
             tags: ["React", "Node.js", "Express", "MongoDB", "AntD"],
             code: "https://github.com/rozvalle/iptfinalproject-the-noodle-house",
             live: "https://ipt-final-project-noodle-house.vercel.app/",
-            icon: <Laptop size={20} />,
+            icon: noodlehouseLogo,
         },
         {
             title: "TechGuru",
@@ -84,10 +105,10 @@ export default function Projects() {
             tags: ["HTML", "CSS"],
             code: "https://github.com/rozvalle/TechGuru-Website",
             live: "https://rozvalle.github.io/TechGuru-Website/index.html",
-            icon: <Laptop size={20} />,
+            icon: techguruLogo,
         },
         {
-            title:"FurCare",
+            title: "FurCare",
             shortDesc: "Website for recording pet vaccination records.",
             fullDesc:
                 "A web application designed to help pet owners keep track of their pets' vaccination records, with features for adding, updating, and viewing vaccination history.",
@@ -97,7 +118,7 @@ export default function Projects() {
             tags: ["React", "Node.js", "Express", "MySQL", "AntD"],
             code: "https://github.com/rozvalle/furcare-pet-vaccination-system",
             live: "#",
-            icon: <Laptop size={20} />,
+            icon: furcareLogo,
         }
     ];
 
@@ -162,9 +183,17 @@ function ProjectCard({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="flex items-center gap-2 mb-2 text-indigo-600 dark:text-indigo-400">
-                    {icon} <h4 className="text-lg font-semibold">{title}</h4>
+                <div className="flex items-center gap-3 mb-3">
+                    {icon && (
+                        <img
+                            src={icon}
+                            alt={`${title} logo`}
+                            className="w-10 h-10 rounded-lg object-contain bg-zinc-100 dark:bg-zinc-800 p-1"
+                        />
+                    )}
+                    <h4 className="text-lg font-semibold">{title}</h4>
                 </div>
+
                 <p className="text-zinc-600 dark:text-zinc-400 mb-4">{shortDesc}</p>
 
                 <div className="flex flex-wrap gap-2">
@@ -196,11 +225,39 @@ function ProjectCard({
                             className="bg-white dark:bg-zinc-900 p-6 rounded-xl max-w-3xl w-full shadow-lg flex flex-col gap-6"
                         >
                             {/* Header */}
-                            <div>
-                                <h4 className="text-2xl font-bold mb-2">{title}</h4>
-                                <p className="text-zinc-700 dark:text-zinc-300">{fullDesc}</p>
+                            <div className="flex items-start gap-4 pr-10">
+                                {/* Logo */}
+                                <motion.div
+                                    initial={{ scale: 0.8, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="w-14 h-14 rounded-xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden flex-shrink-0"
+                                >
+                                    {typeof icon === "string" ? (
+                                        <img
+                                            src={icon}
+                                            alt={`${title} logo`}
+                                            className="w-full h-full object-contain p-2"
+                                        />
+                                    ) : (
+                                        icon
+                                    )}
+                                </motion.div>
+
+                                {/* Title + description */}
+                                <div>
+                                    <h4 className="text-2xl font-bold leading-tight">{title}</h4>
+                                    <p className="text-zinc-600 dark:text-zinc-400 mt-1">
+                                        {shortDesc}
+                                    </p>
+                                </div>
                             </div>
 
+                            {/* Full description */}
+                            <p className="text-zinc-700 dark:text-zinc-300">
+                                {fullDesc}
+                            </p>
+                            
                             {/* Difficulty */}
                             <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded-lg shadow-sm">
                                 <h5 className="font-semibold mb-2">Difficulty</h5>
