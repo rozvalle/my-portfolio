@@ -12,9 +12,9 @@ export default function Education() {
                         title="BS Information Technology"
                         place="Saint Mary's University College Department"
                         achievements={[
-                            "Silver Medalist - 1st Year, 1st Semester",
-                            "Bronze Medalist - 1st Year, 2nd Semester",
-                            "Silver Medalist - 4th Year, 1st Semester"
+                            "Silver Merit - SY 2022-2023, 1st Semester",
+                            "Bronze Merit - SY 2022-2023, 2nd Semester",
+                            "Silver Merit - SY 2025-2026, 1st Semester"
                         ]}
                     />
                     <TimelineItem
@@ -22,7 +22,7 @@ export default function Education() {
                         title="BS Information Technology"
                         place="Saint Louis University"
                         achievements={[
-                            "Deans Lister - 1st Year, 1st Semester",
+                            "Deans Lister - SY 2020-2021, 1st Semester",
                         ]}
                     />
                     <TimelineItem
@@ -30,8 +30,8 @@ export default function Education() {
                         title="STEM Senior High School"
                         place="Saint Mary's University Senior High School Department"
                         achievements={[
-                            "With Honors - 2018-2020",
-                            "With High Honors - 2019-2020"
+                            "With Honors - SY 2018-2019",
+                            "With High Honors - SY 2019-2020"
                         ]}
                     />
                 </div>
